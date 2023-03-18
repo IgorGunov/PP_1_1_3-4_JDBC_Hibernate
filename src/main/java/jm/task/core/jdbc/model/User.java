@@ -1,21 +1,19 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.*;
-
-@Entity
-@Table (name = "users")
+//@Entity
+//@Table (name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+//    @Column
     private String name;
 
-    @Column
+//    @Column
     private String lastName;
 
-    @Column
+//    @Column
     private Byte age;
 
     public User() {
