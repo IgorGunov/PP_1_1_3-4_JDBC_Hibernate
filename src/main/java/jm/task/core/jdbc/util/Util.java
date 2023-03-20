@@ -1,18 +1,29 @@
 package jm.task.core.jdbc.util;
 
-import java.sql.*;
+import jm.task.core.jdbc.model.User;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class Util {
-    public Connection connect() {
-        String url = "jdbc:mysql://localhost:3306/user?serverTimezone=UTC";
-        String username = "root";
-        String password = "Zebra_///123";
 
-        try {
-            Connection con = DriverManager.getConnection(url, username, password);
-            return con;
-        } catch (SQLException e) {
-            throw new IllegalStateException("Cannot connect the database!", e);
+    private static SessionFactory sessionFactory;
+
+    private Util() {
+    }
+
+    public static SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
+            try {
+                Configuration configuration = new Configuration().configure();
+                configuration.addAnnotatedClass(User.class);
+                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+                sessionFactory = configuration.buildSessionFactory(builder.build());
+
+            } catch (Exception e) {
+                System.out.println("Исключение!" + e);
+            }
         }
+        return sessionFactory;
     }
 }
