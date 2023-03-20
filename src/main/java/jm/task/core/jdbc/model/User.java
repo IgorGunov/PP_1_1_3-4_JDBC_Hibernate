@@ -3,17 +3,17 @@ package jm.task.core.jdbc.model;
 //@Entity
 //@Table (name = "users")
 public class User {
-//    @Id
+    //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column
+    //    @Column
     private String name;
 
-//    @Column
+    //    @Column
     private String lastName;
 
-//    @Column
+    //    @Column
     private Byte age;
 
     public User() {
@@ -55,14 +55,14 @@ public class User {
         return age;
     }
 
-@Override
-public String toString() {
-    return ", name='" + name + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", age=" + age;
-}
+    @Override
+    public String toString() {
+        return ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age;
+    }
 
-public void setAge(Byte age) {
+    public void setAge(Byte age) {
         this.age = age;
     }
 }
