@@ -20,7 +20,6 @@ public class Util {
             try {
                 Configuration configuration = new Configuration();
 
-                // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/user?serverTimezone=Europe/Moscow");
@@ -48,13 +47,4 @@ public class Util {
         }
         return sessionFactory;
     }
-
-//    public static SessionFactory getSessionFactory() {
-//        Configuration configuration = new Configuration().configure();
-//        configuration.addAnnotatedClass(User.class);
-//        StandardServiceRegistryBuilder standart = new StandardServiceRegistryBuilder()
-//                .applySettings(configuration.getProperties());
-//        SessionFactory sessionFactory = configuration.buildSessionFactory(standart.build());
-//        return sessionFactory;
-//    }
 }
